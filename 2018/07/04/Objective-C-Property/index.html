@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Never too late to learn.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://memdreams.github.io/index.html">
+<meta name="description" content="Property Introduction July 25, 2015 Jie Meng Property前世今生  @property属性（@property ）用于自动生成setter和getter，即accessor，以及默认生成实例变量。1.1 手动生成accessor方法：没有property之前，类声明及实现实例变量的存取方法如下：People.h#import &amp;lt;Foundat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Property">
+<meta property="og:url" content="http://memdreams.github.io/2018/07/04/Objective-C-Property/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Never too late to learn.">
+<meta property="og:description" content="Property Introduction July 25, 2015 Jie Meng Property前世今生  @property属性（@property ）用于自动生成setter和getter，即accessor，以及默认生成实例变量。1.1 手动生成accessor方法：没有property之前，类声明及实现实例变量的存取方法如下：People.h#import &amp;lt;Foundat">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-04T16:12:02.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="Never too late to learn.">
+<meta name="twitter:title" content="Objective-C Property">
+<meta name="twitter:description" content="Property Introduction July 25, 2015 Jie Meng Property前世今生  @property属性（@property ）用于自动生成setter和getter，即accessor，以及默认生成实例变量。1.1 手动生成accessor方法：没有property之前，类声明及实现实例变量的存取方法如下：People.h#import &amp;lt;Foundat">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://memdreams.github.io/"/>
+  <link rel="canonical" href="http://memdreams.github.io/2018/07/04/Objective-C-Property/"/>
 
 
 
 
 
-  <title>Blog</title>
+  <title>Objective-C Property | Blog</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/04/Objective-C-Property/" itemprop="url">Objective-C Property</a></h1>
+          <h1 class="post-title" itemprop="name headline">Objective-C Property</h1>
         
 
         <div class="post-meta">
@@ -301,9 +299,7 @@
       
 
       
-        
-          
-            <p>Property Introduction</p>
+        <p>Property Introduction</p>
 <p>July 25, 2015</p>
 <p>Jie Meng</p>
 <p>Property<br>前世今生</p>
@@ -319,8 +315,6 @@
 <p>2.3 内存管理：<br>strong，weak，copy，retain，unsafe_unretained和assign都是内存管理相关的关键字。<br>由于现在普遍使用ARC(自动引用计数)，所以着重讲下ARC引用的关键字：strong、weak、copy代表了不同的ownership关系。<br>strong<br>strong是强引用，且是默认特性，拥有对象的所有权。一旦某个property是strong，则其直到没有任何对象引用到这个property，即自动计数为0，其才会被释放；且是自动释放；无需手动添加release代码。<br>weak<br>weak不拥有对象的所有权，也不会对传入对象进行引用计数加1的操作。基本只在可能引起retain circle的情况下（会造成内存泄露）才使用weak，否则都使用strong。<br>只要自动计数为0，weak对象就会被释放，且置为nil。<br>copy<br>copy与strong类似，但它对传入对象的副本拥有所有权，而非对象本身。<br>通常情况下，当某个property是指向其他对象的指针，且该对象的类有可修改的子类（例如NSString/NSMutableString或NSArray/NSMutableArray）时，应将该属性的内存管理特性设为copy。</p>
 <p>手动引用计数MRR：<br>以前的retain等同于ARC下的strong。在ARC下不再使用。<br>而unsafe_unretained类似于weak，只是其声明的对象在释放后并不自动置为nil，可能造成悬垂指针。<br>assign在iOS5之前用于对象和weak作用等同，但之后不再使用。现在仅用于值类型，如int、float、double和NSInteger，CGFloat等表示单纯的复制。还包括不存在所有权关系的对象。</p>
 
-          
-        
       
     </div>
     
@@ -337,133 +331,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/07/04/Python-iterator-and-iterable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jie Meng (Julie)">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/04/Python-iterator-and-iterable/" itemprop="url">Python iterator and iterable</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T11:20:33-04:00">
-                2018-07-04
-              </time>
+              <a href="/2018/07/04/Python-iterator-and-iterable/" rel="next" title="Python iterator and iterable">
+                <i class="fa fa-chevron-left"></i> Python iterator and iterable
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’.</p>
-<p>If you don’t understand the words well, that’s fine, I will explain it thorough with solid examples later.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -473,138 +362,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/07/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jie Meng (Julie)">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/04/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T10:54:34-04:00">
-                2018-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -612,6 +374,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -808,6 +574,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
