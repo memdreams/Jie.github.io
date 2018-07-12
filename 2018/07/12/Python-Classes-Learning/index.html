@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python, nonlocal, global," />
 
 
 
@@ -117,17 +117,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="Before starting the introduction of classes, I would like to talk about python scope and namespace. namespacenonlocal and global keywordsUsage of nonlocal and global:def scope_test():    def normalEx(">
+<meta name="keywords" content="python, nonlocal, global">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://memdreams.github.io/2018/07/04/hello-world/index.html">
+<meta property="og:title" content="Python Classes Learning">
+<meta property="og:url" content="http://memdreams.github.io/2018/07/12/Python-Classes-Learning/index.html">
 <meta property="og:site_name" content="Dreams&#39; Inn">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Before starting the introduction of classes, I would like to talk about python scope and namespace. namespacenonlocal and global keywordsUsage of nonlocal and global:def scope_test():    def normalEx(">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-04T14:54:34.749Z">
+<meta property="og:updated_time" content="2018-07-12T21:04:01.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Python Classes Learning">
+<meta name="twitter:description" content="Before starting the introduction of classes, I would like to talk about python scope and namespace. namespacenonlocal and global keywordsUsage of nonlocal and global:def scope_test():    def normalEx(">
 
 
 
@@ -157,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://memdreams.github.io/2018/07/04/hello-world/"/>
+  <link rel="canonical" href="http://memdreams.github.io/2018/07/12/Python-Classes-Learning/"/>
 
 
 
 
 
-  <title>Hello World | Dreams' Inn</title>
+  <title>Python Classes Learning | Dreams' Inn</title>
   
 
 
@@ -290,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/07/04/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/07/12/Python-Classes-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Meng (Julie)">
@@ -307,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Python Classes Learning</h1>
         
 
         <div class="post-meta">
@@ -319,8 +320,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T10:54:34-04:00">
-                2018-07-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-12T16:34:21-04:00">
+                2018-07-12
               </time>
             
 
@@ -357,15 +358,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Before starting the introduction of classes, I would like to talk about python scope and namespace.</p>
+<h1 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h1><h1 id="nonlocal-and-global-keywords"><a href="#nonlocal-and-global-keywords" class="headerlink" title="nonlocal and global keywords"></a>nonlocal and global keywords</h1><p>Usage of <code>nonlocal</code> and <code>global</code>:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">normalEx</span><span class="params">()</span>:</span></span><br><span class="line">        t = <span class="string">'the normal'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nonLocalEx</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> t</span><br><span class="line">        t = <span class="string">"nonlocal variable"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">globalEx</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> t</span><br><span class="line">        t = <span class="string">"global value"</span></span><br><span class="line"></span><br><span class="line">    t = <span class="string">'hello, the first line.'</span></span><br><span class="line"></span><br><span class="line">    normalEx()</span><br><span class="line">    print(<span class="string">"After normal:"</span>, t)</span><br><span class="line">    nonLocalEx()</span><br><span class="line">    print(<span class="string">"After NonlocalEx:"</span>, t)</span><br><span class="line">    globalEx()</span><br><span class="line">    print(<span class="string">"After GlobalEx:"</span>, t)</span><br><span class="line"></span><br><span class="line">t = <span class="string">"Top-Level t"</span></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">"In Top-Level:"</span>, t)</span><br></pre></td></tr></table></figure></p>
+<p><strong>Result</strong>:<br>After normal: hello, the first line.<br>After NonlocalEx: nonlocal variable<br>After GlobalEx: nonlocal variable<br>In Top-Level: global value</p>
+<p>In order to see the affect depth of the <code>nonlocal</code> and <code>global</code>, I tried the following code:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">normalEx</span><span class="params">()</span>:</span></span><br><span class="line">        t = <span class="string">'the normal'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nonLocalEx</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> t</span><br><span class="line">        t = <span class="string">"nonlocal variable"</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">nonLocalEx</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">nonlocal</span> t</span><br><span class="line">            t = <span class="string">"sub-nonlocal variable"</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">globalEx</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">global</span> t</span><br><span class="line">            t = <span class="string">"sub-global value"</span></span><br><span class="line"></span><br><span class="line">        t = <span class="string">'the sub line.'</span></span><br><span class="line">        print(<span class="string">"After subnormal:"</span>, t)</span><br><span class="line">        nonLocalEx()</span><br><span class="line">        print(<span class="string">"After subNonlocalEx:"</span>, t)</span><br><span class="line">        globalEx()</span><br><span class="line">        print(<span class="string">"After subGlobalEx:"</span>, t)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">globalEx</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> t</span><br><span class="line">        t = <span class="string">"global value"</span></span><br><span class="line"></span><br><span class="line">    t = <span class="string">'hello, the first line.'</span></span><br><span class="line"></span><br><span class="line">    normalEx()</span><br><span class="line">    print(<span class="string">"After normal:"</span>, t)</span><br><span class="line">    nonLocalEx()</span><br><span class="line">    print(<span class="string">"After NonlocalEx:"</span>, t)</span><br><span class="line">    <span class="comment"># globalEx()</span></span><br><span class="line">    print(<span class="string">"After GlobalEx:"</span>, t)</span><br><span class="line">t = <span class="string">"top-Level value"</span></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">"In Top-Level:"</span>, t)</span><br></pre></td></tr></table></figure></p>
+<p><strong>Result</strong>:<br>After normal: hello, the first line.<br>After subnormal: the sub line.<br>After subNonlocalEx: subnonlocal variable<br>After subGlobalEx: subnonlocal variable<br>After NonlocalEx: subnonlocal variable<br>After GlobalEx: subnonlocal variable<br>In Top-Level: subglobal value</p>
+<p>But if I uncomment the <code>globalEx()</code>, the result of <code>print(&quot;In Top-Level:&quot;, t)</code> is “In Top-Level: global value”, which means the most outside <code>global</code> statement effect the final global value. While for <code>nonlocal</code> the innermost <code>nonlocal</code> statement effect the givin object value. </p>
 
       
     </div>
@@ -381,6 +379,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python-nonlocal-global/" rel="tag"># python, nonlocal, global</a>
+          
+        </div>
+      
 
       
       
@@ -390,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/25/Objective-C-Property/" rel="next" title="Objective-C Property">
-                <i class="fa fa-chevron-left"></i> Objective-C Property
+              <a href="/2018/07/10/Python-Exception-Learning/" rel="next" title="Python Exception Learning">
+                <i class="fa fa-chevron-left"></i> Python Exception Learning
               </a>
             
           </div>
@@ -399,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/04/Python-iterator-and-iterable/" rel="prev" title="Python iterator and iterable">
-                Python iterator and iterable <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#namespace"><span class="nav-number">1.</span> <span class="nav-text">namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nonlocal-and-global-keywords"><span class="nav-number">2.</span> <span class="nav-text">nonlocal and global keywords</span></a></li></ol></div>
             
 
           </div>

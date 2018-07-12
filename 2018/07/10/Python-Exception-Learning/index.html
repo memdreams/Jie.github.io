@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Dreams&#39; Inn">
 <meta property="og:description" content="In python, every built-in exception must be an instance of a class which inherits from BaseException. But user-defined exception class should inherit from Exception or its subclass. Exception is an su">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-10T21:15:44.364Z">
+<meta property="og:updated_time" content="2018-07-10T22:54:30.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Exception Learning">
 <meta name="twitter:description" content="In python, every built-in exception must be an instance of a class which inherits from BaseException. But user-defined exception class should inherit from Exception or its subclass. Exception is an su">
@@ -358,7 +358,7 @@
       
 
       
-        <p>In python, every built-in exception must be an instance of a class which inherits from <code>BaseException</code>. But user-defined exception class should inherit from <code>Exception</code> or its subclass. <code>Exception</code> is an subclass of <code>BaseException</code>.</p>
+        <p>In python, every built-in exception must be an instance of a class which inherits from <code>BaseException</code>. But user-defined exception class should inherit from <code>Exception</code> or its subclass. <code>Exception</code> is an subclass of <code>BaseException</code>.<br>Please note: “When an exception has been assigned using as target, it is cleared at the end of the except clause.”</p>
 <p>Here I would like to illustrate several methods for handling exceptions.</p>
 <h1 id="raise-expression"><a href="#raise-expression" class="headerlink" title="raise expression"></a>raise expression</h1><p><code>raise</code> allows you to force generate your own customized exceptions, which makes you control your code more convenient and effective. Although you still can raise built-in exceptions.</p>
 <p>Run the expression on terminal:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">raise</span> Exception(<span class="string">'spam'</span>, <span class="string">'eggs'</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">    File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">Exception: (<span class="string">'spam'</span>, <span class="string">'eggs'</span>)</span><br></pre></td></tr></table></figure></p>
@@ -369,7 +369,7 @@
 <h1 id="try-statement"><a href="#try-statement" class="headerlink" title="try statement"></a>try statement</h1><p><code>try</code> statement can has <code>except</code> clause, or <code>finally</code> clause, or both. <code>raise</code> can be used in <code>try</code> expression.</p>
 <h2 id="except-clause"><a href="#except-clause" class="headerlink" title="except clause"></a>except clause</h2><p>One example including the usage of <code>instance.args</code>:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">try</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">raise</span> NameError(<span class="string">'Name:'</span>, <span class="string">'Wrong'</span>)</span><br><span class="line"><span class="meta">... </span><span class="keyword">except</span> Exception <span class="keyword">as</span> inst:</span><br><span class="line"><span class="meta">... </span>    print(type(inst))</span><br><span class="line"><span class="meta">... </span>    print(inst.args)</span><br><span class="line"><span class="meta">... </span>    print(inst)</span><br><span class="line"><span class="meta">... </span>    x, y = inst.args</span><br><span class="line"><span class="meta">... </span>    print(<span class="string">"x="</span>, x)</span><br><span class="line"><span class="meta">... </span>    print(<span class="string">"y="</span>, y)</span><br><span class="line">...</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">NameError</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="params">(<span class="string">'Name:'</span>, <span class="string">'Wrong'</span>)</span></span></span><br><span class="line"><span class="class"><span class="params">(<span class="string">'Name:'</span>, <span class="string">'Wrong'</span>)</span></span></span><br><span class="line">x= Name:</span><br><span class="line">y= Wrong</span><br></pre></td></tr></table></figure></p>
 <p>Just as the document says, “If an exception has arguments, they are printed as the last part (‘detail’) of the message for unhandled exceptions.”</p>
-<h2 id="finally-clause"><a href="#finally-clause" class="headerlink" title="finally clause"></a>finally clause</h2><p>“A finally clause is always executed before leaving the try statement, whether an exception has occurred or not.” “The finally clause is also executed “on the way out” when any other clause of the try statement is left via a break, continue or return statement.”</p>
+<h2 id="finally-clause"><a href="#finally-clause" class="headerlink" title="finally clause"></a>finally clause</h2><p>“A finally clause is always executed before leaving the try statement, whether an exception has occurred or not.” “The finally clause is also executed “on the way out” when any other clause of the try statement is left via a <code>break</code>, <code>continue</code> or <code>return</code> statement.”<br>For example, with/without <code>return</code>, the <code>finally</code> will be executed:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = x / y</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">        print(<span class="string">"division by zero!"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"result is"</span>, result)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        print(<span class="string">"executing finally clause"</span>)</span><br><span class="line"></span><br><span class="line">divide(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">divide(<span class="number">2.0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
 <h1 id="User-defined-Exceptions"><a href="#User-defined-Exceptions" class="headerlink" title="User-defined Exceptions"></a>User-defined Exceptions</h1><p>You can design your own exception classes inherited from <code>Exception</code> and its subclasses, and you’d better name your class end with “Error”.</p>
 <p>PS:<br>Using following code, you don’t need to close the file by call <code>f.close()</code>, the <code>with</code> statement helps you do that.<br>with open(“myfile.txt”) as f:<br>    for line in f:<br>        print(line, end=””)</p>
 
@@ -411,6 +411,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/12/Python-Classes-Learning/" rel="prev" title="Python Classes Learning">
+                Python Classes Learning <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +495,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -504,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
