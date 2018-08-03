@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Dreams&#39; Inn">
 <meta property="og:description" content="The process is based on the X86-64 linux or Unix system. The principle of other system is similar. When a C programming language file named hello.c would like to run on a X86-64 linux computer, it usu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-03T14:38:08.113Z">
+<meta property="og:updated_time" content="2018-08-03T16:18:52.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How a C Program Running">
 <meta name="twitter:description" content="The process is based on the X86-64 linux or Unix system. The principle of other system is similar. When a C programming language file named hello.c would like to run on a X86-64 linux computer, it usu">
@@ -381,28 +381,54 @@
 
       
         <p>The process is based on the X86-64 linux or Unix system. The principle of other system is similar.</p>
-<p>When a C programming language file named <strong>hello.c</strong> would like to run on a X86-64 linux computer, it usually should go through 4 steps:</p>
+<p>When a C programming language file named <em>hello.c</em> would like to run on a X86-64 linux computer, it usually should go through 4 steps:</p>
 <ul>
 <li>Compile</li>
 <li>Link</li>
 <li>Load</li>
-<li>Execute<br>Next I will illustrate them respectively.</li>
+<li>Execute</li>
 </ul>
-<h1 id="Compiling"><a href="#Compiling" class="headerlink" title="Compiling"></a>Compiling</h1><p>Most compilation systems provide a <strong>compiler driver</strong> that invoke all the compiling process and linker. Here, we use <em>GCC</em> driver as the example.<br>In compiling process, there are actually 3 steps for the output <em>relocatable object file</em>, that is _.o_ file. They are,</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Next I will illustrate them respectively.</p>
+<h1 id="Compiling"><a href="#Compiling" class="headerlink" title="Compiling"></a>Compiling</h1><p>Most compilation systems provide a <em>compiler driver</em> that invoke all the compiling process and linker. Here, we use <strong>GCC</strong> driver as the example.<br>In compiling process, there are actually 3 steps for the output <strong>relocatable object file</strong>, that is _.o_ file. They are,</p>
 <ul>
 <li>Preprocessor (cpp)</li>
 <li>C Compiler (ccl)</li>
 <li>Assembler (as)</li>
 </ul>
-<p><em>Preprocessor</em> first translates the C source file <strong>hello.c</strong> into an ASCII intermediate file, such as <strong>hello.i</strong>. In the translation, preprocessor can do 4 things,</p>
-<ul>
+<p><strong>Preprocessor</strong> first translates the C source file <em>hello.c</em> into an ASCII intermediate file, such as <em>hello.i</em>. In the translation, preprocessor can do 4 things,</p>
+<ol>
 <li>Inclusion the header files;</li>
 <li>Macro expansion, which replace the <code>#define</code> macros with their definitions;</li>
 <li>Conditional Compilation;</li>
 <li>Line control.</li>
+</ol>
+<p>Then the C <strong>compiler</strong> will translate the <em>hello.i</em> into an assembly-language file <em>hello.s</em>. The <strong>assembler</strong> then translates <em>hello.s</em> into a binary <em>relocatable object file</em> <em>hello.o</em>.<br>Compiler can do some optimized operation, such as replace <code>2+6</code> with 8 directly, whereas assembler translates the assembly instructions into different sections with special format in the relocatable object file. Code and Data are definitely separated into different sections which generally named <code>.text</code> and <code>.data</code> and <code>.bss</code>.<br>And in the .o file, there are also the <em>symbol table</em> and <em>relocatable text</em> and <em>data</em> sections which are used for <strong>symbol resolution</strong> and <strong>relocation</strong> respectively in the linking step.</p>
+<h1 id="Linking"><a href="#Linking" class="headerlink" title="Linking"></a>Linking</h1><p>In C programming language, there is a principle that each symbol reference can only associate with exactly one symbol definition. So, <strong>symbol resolution</strong> is used for solving duplicate symbol conflict via 3 rules for judging symbols <strong>strong</strong> or <strong>weak</strong> when linking more than one .o object files which have same name symbols.</p>
+<p><strong>relocation</strong> utilizes the relocatable text and data sections in .o file to insert the data and file into the .text and .data segments properly, and meanwhile, update the symbol reference in symbol table.</p>
+<p>The <strong>executable object file</strong> <em>hello</em> is generated by <code>gcc -o hello hello.c</code>(the compiling process is automatically done with this command), the entry point(where the <code>main</code> function is) is assigned. After linking, all the code and data from different .o files should combine in the text and data segments, and symbol table is updated to maintain the address of all the symbols in the source file.</p>
+<p>In this hello.c example, we didn’t include other customized c file, but called function <code>printf</code> including in the standard library <code>stdio</code>, which will be linked in the executable object file in linking procedure dynamically.</p>
+<h1 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h1><p>The <strong>executable object file</strong> <em>hello</em> then need to be loaded by a <strong>loader</strong>, which adopts a method named <strong>Page Mapping</strong>.<br>There are 3 steps in loading,</p>
+<ul>
+<li>Create the <strong>virtual address space</strong> for <strong>process</strong>, ie. mapping structure from virtual memory address(<strong>VMA</strong>) to physical address;</li>
+<li>Read header of executable object file <em>hello</em>, build the mapping relationship between <em>hello</em> and virtual address space;</li>
+<li>Set CPU instruction register(usually %esp, stack pointer register) as entry point, start running.</li>
 </ul>
-<p>Then the C <em>compiler</em> will translate the <strong>hello.i</strong> into an assembly-language file <strong>hello.s</strong>. The <em>assembler</em> then translates <strong>hello.s</strong> into a binary <em>relocatable object file</em> <strong>hello.o</strong>.<br>Compiler can do some optimized operation, such as replace <code>2+6</code> with 8 directly.</p>
-<h1 id="Linking"><a href="#Linking" class="headerlink" title="Linking"></a>Linking</h1><h1 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h1><h1 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h1><p>Ref:<br>+<strong><a href="https://blog.piasy.com/2017/10/24/I-Need-Know-About-Compile-Link-Load-Execute/" target="_blank" rel="noopener">编译链接装载运行</a></strong><br>+[Computer System: A Programmer’s Perspective]</p>
+<p>Only code and data segments will be loaded into memory. And once page is loaded successfully, the <em>hello</em> can be executed.</p>
+<h1 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h1><p>When <em>hello</em> can be executed, it means its an active <em>process</em> and in the virtual memory now. In the virtual memory space, the code, data and heap are located from lowest addresses to higher ones, and  the stack is expanding from top addresses to lower ones. Between them is unused addresses and space for <em>dynamic libraries</em>, where the <code>printf</code> mentioned in linking is referenced from.</p>
+<p>The <strong>stack</strong> is the core of function calls. The stack top address is stored in %esp. <strong>Stack frame</strong> in the stack stores the information for a function call, which includes,</p>
+<ul>
+<li>the function parameters and return address;</li>
+<li>the context, such as the registers before and after the call;</li>
+<li>temporary variables;</li>
+<li>%esp point to top stack, %ebp(frame pointer) point to the returned function address + 4.</li>
+</ul>
+<p>During the calling, we have to obey a convention about the order of reading parameters, how to pop and push in the stack, and how to handle name mangling etc. Maybe I will introduce them next time.</p>
+<p>Ref:</p>
+<ul>
+<li><strong><a href="https://blog.piasy.com/2017/10/24/I-Need-Know-About-Compile-Link-Load-Execute/" target="_blank" rel="noopener">编译链接装载运行</a></strong></li>
+<li>[Computer System: A Programmer’s Perspective]</li>
+</ul>
 
       
     </div>
