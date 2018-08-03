@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="iterator,generator," />
+  <meta name="keywords" content="compile,link,load,execute," />
 
 
 
@@ -117,18 +117,18 @@
 
 
 
-<meta name="description" content="According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is">
-<meta name="keywords" content="iterator,generator">
+<meta name="description" content="The process is based on the X86-64 linux or Unix system. The principle of other system is similar. When a C programming language file named hello.c would like to run on a X86-64 linux computer, it usu">
+<meta name="keywords" content="compile,link,load,execute">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python iterator and iterable">
-<meta property="og:url" content="http://memdreams.github.io/2018/07/04/Python-iterator-and-iterable/index.html">
+<meta property="og:title" content="How a C Program Running">
+<meta property="og:url" content="http://memdreams.github.io/2018/08/03/How-a-C-Program-Running/index.html">
 <meta property="og:site_name" content="Dreams&#39; Inn">
-<meta property="og:description" content="According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is">
+<meta property="og:description" content="The process is based on the X86-64 linux or Unix system. The principle of other system is similar. When a C programming language file named hello.c would like to run on a X86-64 linux computer, it usu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T15:55:14.336Z">
+<meta property="og:updated_time" content="2018-08-03T14:38:08.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python iterator and iterable">
-<meta name="twitter:description" content="According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is">
+<meta name="twitter:title" content="How a C Program Running">
+<meta name="twitter:description" content="The process is based on the X86-64 linux or Unix system. The principle of other system is similar. When a C programming language file named hello.c would like to run on a X86-64 linux computer, it usu">
 
 
 
@@ -158,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://memdreams.github.io/2018/07/04/Python-iterator-and-iterable/"/>
+  <link rel="canonical" href="http://memdreams.github.io/2018/08/03/How-a-C-Program-Running/"/>
 
 
 
 
 
-  <title>Python iterator and iterable | Dreams' Inn</title>
+  <title>How a C Program Running | Dreams' Inn</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/07/04/Python-iterator-and-iterable/">
+    <link itemprop="mainEntityOfPage" href="http://memdreams.github.io/2018/08/03/How-a-C-Program-Running/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jie Meng (Julie)">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python iterator and iterable</h1>
+          <h1 class="post-title" itemprop="name headline">How a C Program Running</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T11:20:33-04:00">
-                2018-07-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T09:59:08-04:00">
+                2018-08-03
               </time>
             
 
@@ -343,8 +343,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Operating-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Operating System</span>
                   </a>
                 </span>
 
@@ -380,15 +380,29 @@
       
 
       
-        <p>According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is the generator which is a special iterator. </p>
-<p>If you are confused with all the above, don’t worry, I will explain it thorough enough with solid examples later.</p>
-<h1 id="iterable"><a href="#iterable" class="headerlink" title="iterable"></a>iterable</h1><p>All sequence types are iterables, such as <code>list</code>, <code>str</code>, <code>tuple</code>. So each object you defined with an <code>__iter__()</code> or <code>__getitem__()</code> method (which implements <code>sequence</code> semantics) is an iterable.<br>Also, some non-sequence types are iterable., such as dict, which includes iterator function <code>dict.items()</code>, <code>dict.keys()</code> etc.</p>
-<p><strong>NOTE:</strong><br>The important thing is the iterable will return an iterator when you call <code>iter(iterable_name)</code> or use it in for-loop. More often, we use it in a <code>for</code> loop and places where a sequence is needed.</p>
-<h1 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h1><p>An iterator should comply with the iterator protocol, which is composed with two methods ———— <code>__iter__()</code> and <code>__next()__</code>.<br><code>__iter__()</code> returns the iterator object itself.<br><code>__next()__</code> returns the next item from the container. If there are no further items, it should raise the <code>StopIteration</code> exception.<br>So when you implement an iterator object by define a class, you are required to satisfy all the requirements.</p>
-<p>For example:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IteratorExample</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, maxL)</span>:</span></span><br><span class="line">		self.maxL = maxL</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.a = <span class="number">0</span></span><br><span class="line">		<span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">		b = a+<span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> b &gt; self.maxL:</span><br><span class="line">			<span class="keyword">raise</span> StopIteration</span><br><span class="line">		<span class="keyword">return</span> b</span><br></pre></td></tr></table></figure></p>
-<p><strong> NOTE: </strong><br>The iterator will return an iterator itself when you call <code>__iter__()</code> on it. Hence, an iterator is also an iterable. Thus, you can use it just like an iterable.<br>This is a smart and tricky operation, while the other programming languages like C++ usually don’t do that.<br>Generally, an iterator couldn’t return itself in other programming languages.</p>
-<h1 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h1><p>Essentially, the generator is just a convienience way of iterator. You don’t have to create a class which should comply with the iterator protocol, since the generator has helped you create them when you write the yield statement.<br>According the official document:<br>‘Anything that can be done with generators can also be done with class-based iterators as described in the previous section. What makes generators so compact is that the <strong>iter</strong>() and <strong>next</strong>() methods are created automatically.<br>Another key feature is that the local variables and execution state are automatically saved between calls. This made the function easier to write and much more clear than an approach using instance variables like self.index and self.data.<br>In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration. In combination, these features make it easy to create iterators with no more effort than writing a regular function.<br>‘<br><strong> NOTE: </strong><br>The best benefit for the generator is the lazy concept. It only call and run the function when needed, so it saves the memory and make the calculation is more efficent.</p>
-<p><em>“Updating at any time”</em></p>
+        <p>The process is based on the X86-64 linux or Unix system. The principle of other system is similar.</p>
+<p>When a C programming language file named <strong>hello.c</strong> would like to run on a X86-64 linux computer, it usually should go through 4 steps:</p>
+<ul>
+<li>Compile</li>
+<li>Link</li>
+<li>Load</li>
+<li>Execute<br>Next I will illustrate them respectively.</li>
+</ul>
+<h1 id="Compiling"><a href="#Compiling" class="headerlink" title="Compiling"></a>Compiling</h1><p>Most compilation systems provide a <strong>compiler driver</strong> that invoke all the compiling process and linker. Here, we use <em>GCC</em> driver as the example.<br>In compiling process, there are actually 3 steps for the output <em>relocatable object file</em>, that is _.o_ file. They are,</p>
+<ul>
+<li>Preprocessor (cpp)</li>
+<li>C Compiler (ccl)</li>
+<li>Assembler (as)</li>
+</ul>
+<p><em>Preprocessor</em> first translates the C source file <strong>hello.c</strong> into an ASCII intermediate file, such as <strong>hello.i</strong>. In the translation, preprocessor can do 4 things,</p>
+<ul>
+<li>Inclusion the header files;</li>
+<li>Macro expansion, which replace the <code>#define</code> macros with their definitions;</li>
+<li>Conditional Compilation;</li>
+<li>Line control.</li>
+</ul>
+<p>Then the C <em>compiler</em> will translate the <strong>hello.i</strong> into an assembly-language file <strong>hello.s</strong>. The <em>assembler</em> then translates <strong>hello.s</strong> into a binary <em>relocatable object file</em> <strong>hello.o</strong>.<br>Compiler can do some optimized operation, such as replace <code>2+6</code> with 8 directly.</p>
+<h1 id="Linking"><a href="#Linking" class="headerlink" title="Linking"></a>Linking</h1><h1 id="Loading"><a href="#Loading" class="headerlink" title="Loading"></a>Loading</h1><h1 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h1><p>Ref:<br>+<strong><a href="https://blog.piasy.com/2017/10/24/I-Need-Know-About-Compile-Link-Load-Execute/" target="_blank" rel="noopener">编译链接装载运行</a></strong><br>+[Computer System: A Programmer’s Perspective]</p>
 
       
     </div>
@@ -406,9 +420,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iterator/" rel="tag"># iterator</a>
+            <a href="/tags/compile/" rel="tag"># compile</a>
           
-            <a href="/tags/generator/" rel="tag"># generator</a>
+            <a href="/tags/link/" rel="tag"># link</a>
+          
+            <a href="/tags/load/" rel="tag"># load</a>
+          
+            <a href="/tags/execute/" rel="tag"># execute</a>
           
         </div>
       
@@ -421,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/25/Objective-C-Property/" rel="next" title="Objective-C Property">
-                <i class="fa fa-chevron-left"></i> Objective-C Property
+              <a href="/2018/07/17/Python-Decorator/" rel="next" title="Python Decorator">
+                <i class="fa fa-chevron-left"></i> Python Decorator
               </a>
             
           </div>
@@ -430,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/10/Python-Exception-Learning/" rel="prev" title="Python Exception Learning">
-                Python Exception Learning <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iterable"><span class="nav-number">1.</span> <span class="nav-text">iterable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iterator"><span class="nav-number">2.</span> <span class="nav-text">iterator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#generator"><span class="nav-number">3.</span> <span class="nav-text">generator</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Compiling"><span class="nav-number">1.</span> <span class="nav-text">Compiling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linking"><span class="nav-number">2.</span> <span class="nav-text">Linking</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loading"><span class="nav-number">3.</span> <span class="nav-text">Loading</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Execution"><span class="nav-number">4.</span> <span class="nav-text">Execution</span></a></li></ol></div>
             
 
           </div>
