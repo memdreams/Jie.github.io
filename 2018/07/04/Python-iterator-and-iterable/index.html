@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Dreams&#39; Inn">
 <meta property="og:description" content="According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T15:55:14.336Z">
+<meta property="og:updated_time" content="2018-08-05T19:30:57.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python iterator and iterable">
 <meta name="twitter:description" content="According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is">
@@ -380,13 +380,13 @@
       
 
       
-        <p>According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is the generator which is a special iterator. </p>
+        <p>According to python offical docunments, the iterator is ‘an object representing a stream of data’, whileas the iterable is ‘an object capable of returnig its members one at a time’. Moreover, there is the generator which is a special iterator.</p>
 <p>If you are confused with all the above, don’t worry, I will explain it thorough enough with solid examples later.</p>
 <h1 id="iterable"><a href="#iterable" class="headerlink" title="iterable"></a>iterable</h1><p>All sequence types are iterables, such as <code>list</code>, <code>str</code>, <code>tuple</code>. So each object you defined with an <code>__iter__()</code> or <code>__getitem__()</code> method (which implements <code>sequence</code> semantics) is an iterable.<br>Also, some non-sequence types are iterable., such as dict, which includes iterator function <code>dict.items()</code>, <code>dict.keys()</code> etc.</p>
 <p><strong>NOTE:</strong><br>The important thing is the iterable will return an iterator when you call <code>iter(iterable_name)</code> or use it in for-loop. More often, we use it in a <code>for</code> loop and places where a sequence is needed.</p>
 <h1 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h1><p>An iterator should comply with the iterator protocol, which is composed with two methods ———— <code>__iter__()</code> and <code>__next()__</code>.<br><code>__iter__()</code> returns the iterator object itself.<br><code>__next()__</code> returns the next item from the container. If there are no further items, it should raise the <code>StopIteration</code> exception.<br>So when you implement an iterator object by define a class, you are required to satisfy all the requirements.</p>
 <p>For example:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IteratorExample</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, maxL)</span>:</span></span><br><span class="line">		self.maxL = maxL</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.a = <span class="number">0</span></span><br><span class="line">		<span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">		b = a+<span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> b &gt; self.maxL:</span><br><span class="line">			<span class="keyword">raise</span> StopIteration</span><br><span class="line">		<span class="keyword">return</span> b</span><br></pre></td></tr></table></figure></p>
-<p><strong> NOTE: </strong><br>The iterator will return an iterator itself when you call <code>__iter__()</code> on it. Hence, an iterator is also an iterable. Thus, you can use it just like an iterable.<br>This is a smart and tricky operation, while the other programming languages like C++ usually don’t do that.<br>Generally, an iterator couldn’t return itself in other programming languages.</p>
+<p><strong> NOTE: </strong><br>The iterator will return an iterator itself when you call <code>__iter__()</code> on it. Hence, an iterator is also an iterable. Thus, you can use it just like an iterable. And you can detect that a value is an <code>iterator</code>(instead of a container) if calling <code>iter</code> on it twice produces the same result.<br>This is a smart and tricky operation, while the other programming languages like C++ usually don’t do that.<br>Generally, an iterator couldn’t return itself in other programming languages.</p>
 <h1 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h1><p>Essentially, the generator is just a convienience way of iterator. You don’t have to create a class which should comply with the iterator protocol, since the generator has helped you create them when you write the yield statement.<br>According the official document:<br>‘Anything that can be done with generators can also be done with class-based iterators as described in the previous section. What makes generators so compact is that the <strong>iter</strong>() and <strong>next</strong>() methods are created automatically.<br>Another key feature is that the local variables and execution state are automatically saved between calls. This made the function easier to write and much more clear than an approach using instance variables like self.index and self.data.<br>In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration. In combination, these features make it easy to create iterators with no more effort than writing a regular function.<br>‘<br><strong> NOTE: </strong><br>The best benefit for the generator is the lazy concept. It only call and run the function when needed, so it saves the memory and make the calculation is more efficent.</p>
 <p><em>“Updating at any time”</em></p>
 
@@ -514,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -536,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -589,7 +589,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

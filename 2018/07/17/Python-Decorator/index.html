@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Dreams&#39; Inn">
 <meta property="og:description" content="Maybe you know Design Pattern, then you don’t feel unfamiliar with decorator pattern. decorator in python is just similar to the thought. decorator pattern is such a structure that you can extend the">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-03T14:44:04.584Z">
+<meta property="og:updated_time" content="2018-08-14T02:19:18.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Decorator">
 <meta name="twitter:description" content="Maybe you know Design Pattern, then you don’t feel unfamiliar with decorator pattern. decorator in python is just similar to the thought. decorator pattern is such a structure that you can extend the">
@@ -389,8 +389,10 @@
 <li>The enclosing function must return the nested function.’<br>‘Closures can avoid the use of global values and provides some form of data hiding. It can also provide an object oriented solution to the problem.’</li>
 </ul>
 <p>‘Functions and methods are called callable as they can be called.<br>In fact, any object which implements the special method <strong>call</strong>() is termed callable. So, in the most basic sense, a decorator is a callable that returns a callable.’</p>
-<h1 id="A-Simple-Example"><a href="#A-Simple-Example" class="headerlink" title="A Simple Example"></a>A Simple Example</h1><h1 id="Decorator-Implementation"><a href="#Decorator-Implementation" class="headerlink" title="Decorator Implementation"></a>Decorator Implementation</h1><h1 id="Python-Built-in-Decorators"><a href="#Python-Built-in-Decorators" class="headerlink" title="Python Built-in Decorators"></a>Python Built-in Decorators</h1><h2 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h2><p><code>property(fget=None, fset=None, fdel=None, doc=None)</code></p>
-<h2 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="@classmethod &amp; @ staticmethod"></a>@classmethod &amp; @ staticmethod</h2><p>Ref:</p>
+<h1 id="A-Simple-Example"><a href="#A-Simple-Example" class="headerlink" title="A Simple Example"></a>A Simple Example</h1><h1 id="Decorator-Implementation"><a href="#Decorator-Implementation" class="headerlink" title="Decorator Implementation"></a>Decorator Implementation</h1><h1 id="Python-Built-in-Decorators"><a href="#Python-Built-in-Decorators" class="headerlink" title="Python Built-in Decorators"></a>Python Built-in Decorators</h1><h2 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h2><p>With Pythonic way, you almost never need to implement explicit setter and getter methods. If you need special behavior when an attribute is set, you can migrate to the @property decorator and its corresponding setter attribute. The build-in @property decorator is :<br><code>property(fget=None, fset=None, fdel=None, doc=None)</code><br>For example,<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    doc = <span class="string">"The  property."</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fget</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._value</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fset</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self._value = value</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fdel</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self._value</span><br><span class="line">    <span class="keyword">return</span> locals()</span><br><span class="line">foo = property(**(foo))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    self._v = <span class="number">0</span></span><br><span class="line">    self.cc = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">  @property</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">v</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> self._v</span><br><span class="line"></span><br><span class="line">  <span class="comment"># now the class A instance a.v will call this setter method</span></span><br><span class="line"><span class="meta">  @v.setter</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">v</span><span class="params">(self, v)</span>:</span></span><br><span class="line">    self._v = v</span><br><span class="line">    self.cc = self._v / <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>The big problem with the @property built-in is reuse.</p>
+<h2 id="classmethod-amp-staticmethod"><a href="#classmethod-amp-staticmethod" class="headerlink" title="@classmethod &amp; @staticmethod"></a>@classmethod &amp; @staticmethod</h2><p>Python only supports a single constructor per class, which is the <strong>init</strong> method. Use @classmethod to define alternative constructors for your classes, and also whether you call the method from the instance or the class, it passes the class as first argument..<br>Use class method polymorphism to provide generic ways to build and connect<br>concrete subclasses.</p>
+<p>Ref:</p>
 <ul>
 <li><strong><a href="http://zhangchuzhao.site/2018/05/25/python-decorator/" target="_blank" rel="noopener">Python装饰器的前世今生</a></strong></li>
 <li><a href="https://www.programiz.com/python-programming/decorator" target="_blank" rel="noopener">decorator</a></li>
@@ -518,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -573,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Simple-Example"><span class="nav-number">1.</span> <span class="nav-text">A Simple Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decorator-Implementation"><span class="nav-number">2.</span> <span class="nav-text">Decorator Implementation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Built-in-Decorators"><span class="nav-number">3.</span> <span class="nav-text">Python Built-in Decorators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#property"><span class="nav-number">3.1.</span> <span class="nav-text">@property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classmethod-amp-staticmethod"><span class="nav-number">3.2.</span> <span class="nav-text">@classmethod &amp; @ staticmethod</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-Simple-Example"><span class="nav-number">1.</span> <span class="nav-text">A Simple Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decorator-Implementation"><span class="nav-number">2.</span> <span class="nav-text">Decorator Implementation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Built-in-Decorators"><span class="nav-number">3.</span> <span class="nav-text">Python Built-in Decorators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#property"><span class="nav-number">3.1.</span> <span class="nav-text">@property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classmethod-amp-staticmethod"><span class="nav-number">3.2.</span> <span class="nav-text">@classmethod &amp; @staticmethod</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -593,7 +595,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
